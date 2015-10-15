@@ -27,8 +27,11 @@ public class Main extends Application{
             //handle event
             window.setScene(scene2);
         });
+        Button buttonAlert=new Button("Alert");
+        buttonAlert.setOnAction(e ->AlertBox.display("Title","Message"));
+
         VBox layout1=new VBox(20);
-        layout1.getChildren().addAll(label1,button);
+        layout1.getChildren().addAll(label1, button,buttonAlert);
         scene1=new Scene(layout1,400,500);
 
         Label label=new Label("Scene Two");
