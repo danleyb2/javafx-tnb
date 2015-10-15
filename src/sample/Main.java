@@ -2,15 +2,12 @@ package sample;
 
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class Main extends Application implements EventHandler<ActionEvent>{
+public class Main extends Application{
 
 
     public Button button;
@@ -21,7 +18,10 @@ public class Main extends Application implements EventHandler<ActionEvent>{
         primaryStage.setTitle("Hello World");
         button=new Button();
         button.setText("Click");
-        button.setOnAction(this);
+        button.setOnAction(e -> {
+            //handle event
+            System.out.println("Event using lambda expression");
+        });
         StackPane layout=new StackPane();
         layout.getChildren().add(button);
         Scene scene=new Scene(layout,400,500);
@@ -34,13 +34,4 @@ public class Main extends Application implements EventHandler<ActionEvent>{
         launch(args);
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-        System.out.println("An event occured");
-        if (event.getSource()==button){
-            //do smt for button
-            System.out.println("A button was clicked");
-        }
-
-    }
 }
