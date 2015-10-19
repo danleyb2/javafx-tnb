@@ -41,6 +41,12 @@ public class GridLayout extends Application{
         Button login=new Button("Log in");
         GridPane.setConstraints(login,1,2);
 
+        login.setOnAction(event ->{
+            String name=textField.getText();
+            String pass=textField2.getText();
+            System.out.println(name+" "+pass);
+        });
+
         grid.getChildren().addAll(label, textField, label1, textField2, login);
 
         Scene scene=new Scene(grid,300,200);
