@@ -28,10 +28,16 @@ public class Main extends Application{
             window.setScene(scene2);
         });
         Button buttonAlert=new Button("Alert");
-        buttonAlert.setOnAction(e ->AlertBox.display("Title","Message"));
+        buttonAlert.setOnAction(e ->AlertBox.display("Alert Title","Alert Message"));
+
+        Button buttonConfirm=new Button("Confirm Box");
+        buttonConfirm.setOnAction(e ->{
+            boolean choice=ConfirmBox.display("Confirm Title","Confirm Message");
+            AlertBox.display("Choice was ",choice?"Yes":"No");
+        });
 
         VBox layout1=new VBox(20);
-        layout1.getChildren().addAll(label1, button,buttonAlert);
+        layout1.getChildren().addAll(label1, button,buttonAlert,buttonConfirm);
         scene1=new Scene(layout1,400,500);
 
         Label label=new Label("Scene Two");
