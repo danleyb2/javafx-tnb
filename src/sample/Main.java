@@ -5,7 +5,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Main extends Application{
@@ -20,7 +21,7 @@ public class Main extends Application{
 
         window=primaryStage;
         window.setTitle("Scene Switch");
-        window.setOnCloseRequest(event ->{
+        window.setOnCloseRequest(event -> {
             event.consume();
             closeWindow();
         });
@@ -32,17 +33,20 @@ public class Main extends Application{
             window.setScene(scene2);
         });
         Button buttonAlert=new Button("Alert");
-        buttonAlert.setOnAction(e ->AlertBox.display("Alert Title","Alert Message"));
+        buttonAlert.setOnAction(e -> AlertBox.display("Alert Title", "Alert Message"));
 
         Button buttonConfirm=new Button("Confirm Box");
-        buttonConfirm.setOnAction(e ->{
-            boolean choice=ConfirmBox.display("Confirm Title","Confirm Message");
-            AlertBox.display("Choice was ",choice?"Yes":"No");
+        buttonConfirm.setOnAction(e -> {
+            boolean choice = ConfirmBox.display("Confirm Title", "Confirm Message");
+            AlertBox.display("Choice was ", choice ? "Yes" : "No");
         });
 
-        VBox layout1=new VBox(20);
-        layout1.getChildren().addAll(label1, button,buttonAlert,buttonConfirm);
-        scene1=new Scene(layout1,400,500);
+        VBox menuLeft=new VBox(20);
+        HBox topMenu=new HBox();
+        topMenu.getChildren().addAll(buttonAlert,buttonConfirm);
+        menuLeft.getChildren().add(button);
+        StackPane center=new StackPane();
+        center.getChildren().add(label1);
 
         Label label=new Label("Scene Two");
         Button button2=new Button("Go to scene One");
@@ -53,6 +57,12 @@ public class Main extends Application{
         VBox layout=new VBox();
         layout.getChildren().addAll(label,button2);
         scene2=new Scene(layout,400,500);
+
+        BorderPane borderPane=new BorderPane();
+        borderPane.setTop(topMenu);
+        borderPane.setLeft(menuLeft);
+        borderPane.setCenter(center);
+        scene1=new Scene(borderPane,400,500);
         window.setScene(scene1);
         window.show();
     }
