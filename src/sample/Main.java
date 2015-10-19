@@ -20,6 +20,7 @@ public class Main extends Application{
 
         window=primaryStage;
         window.setTitle("Scene Switch");
+        window.setOnCloseRequest(event -> closeWindow());
         Label label1=new Label("Scene one");
         button=new Button();
         button.setText("Go to Scene Two");
@@ -53,6 +54,11 @@ public class Main extends Application{
         window.show();
     }
 
+    public void closeWindow(){
+        //save files before close
+
+        window.close();
+    }
 
     public static void main(String[] args) {
         launch(args);
