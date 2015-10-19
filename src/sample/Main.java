@@ -20,7 +20,10 @@ public class Main extends Application{
 
         window=primaryStage;
         window.setTitle("Scene Switch");
-        window.setOnCloseRequest(event -> closeWindow());
+        window.setOnCloseRequest(event ->{
+            event.consume();
+            closeWindow();
+        });
         Label label1=new Label("Scene one");
         button=new Button();
         button.setText("Go to Scene Two");
