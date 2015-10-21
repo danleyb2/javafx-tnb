@@ -33,6 +33,9 @@ public class CheckBoxExample extends Application {
         choiceBox.getItems().add("Value Two");
         choiceBox.getItems().addAll("Value Three", "Value Four");
         choiceBox.setValue(choiceBox.getItems().get(0));
+        choiceBox.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue)->{
+            System.out.println("Change from "+oldValue+" to "+newValue);
+        });
 
 
         Button button=new Button("Click");
