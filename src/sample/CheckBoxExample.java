@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.CheckBox;
@@ -27,16 +28,22 @@ public class CheckBoxExample extends Application {
         });
         CheckBox checkBox2=new CheckBox("Choice C");
 
+        ChoiceBox<String> choiceBox=new ChoiceBox<>();
+        choiceBox.getItems().add("Value one");
+        choiceBox.getItems().add("Value Two");
+        choiceBox.getItems().addAll("Value Three", "Value Four");
+        choiceBox.setValue(choiceBox.getItems().get(0));
+
+
         Button button=new Button("Click");
         button.setOnAction(event -> {
             System.out.println(checkBox.isSelected()?"Choice A selected":"Choice A not selected");
-            checkBox.isSelected();
-            checkBox.isSelected();
+            System.out.println(choiceBox.getValue());
         });
 
         VBox vBox=new VBox();
         vBox.setPadding(new Insets(20,20,20,20));
-        vBox.getChildren().addAll(checkBox,checkBox1,checkBox2,button);
+        vBox.getChildren().addAll(checkBox,checkBox1,checkBox2,choiceBox,button);
 
 
         Scene scene=new Scene(vBox,300,500);
