@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.CheckBox;
@@ -12,13 +13,18 @@ import javafx.scene.control.CheckBox;
 /**
  * Created by brian on 10/21/15.
  */
-public class CheckChoiceBoxExample extends Application {
+public class CheckChoiceComboBox extends Application {
 
     Stage window;
+    ComboBox<String> comboBox;
     @Override
     public void start(Stage primaryStage) throws Exception {
         window=primaryStage;
         window.setTitle("CheckBox");
+        comboBox=new ComboBox<>();
+        comboBox.setPromptText("Your name?");
+        comboBox.setEditable(true);
+        comboBox.getItems().addAll("Brian","Denis","Steven","Kevin");
 
         CheckBox checkBox=new CheckBox("Choice A");
         CheckBox checkBox1=new CheckBox("Choice B");
@@ -42,11 +48,12 @@ public class CheckChoiceBoxExample extends Application {
         button.setOnAction(event -> {
             System.out.println(checkBox.isSelected()?"Choice A selected":"Choice A not selected");
             System.out.println(choiceBox.getValue());
+            System.out.println(comboBox.getValue());
         });
 
         VBox vBox=new VBox();
         vBox.setPadding(new Insets(20,20,20,20));
-        vBox.getChildren().addAll(checkBox,checkBox1,checkBox2,choiceBox,button);
+        vBox.getChildren().addAll(checkBox,checkBox1,checkBox2,choiceBox,comboBox,button);
 
 
         Scene scene=new Scene(vBox,300,500);
