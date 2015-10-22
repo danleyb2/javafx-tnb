@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 /**
  * Created by brian on 10/22/15.
  */
-public class ListViewExample extends Application {
+public class ListTreeView extends Application {
 
     ListView<String> listView;
     @Override
