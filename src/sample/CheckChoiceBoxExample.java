@@ -12,7 +12,7 @@ import javafx.scene.control.CheckBox;
 /**
  * Created by brian on 10/21/15.
  */
-public class CheckBoxExample extends Application {
+public class CheckChoiceBoxExample extends Application {
 
     Stage window;
     @Override
