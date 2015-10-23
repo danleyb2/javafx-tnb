@@ -24,11 +24,24 @@ public class Menus extends Application {
         checkMenuItem1.setSelected(true);
         CheckMenuItem checkMenuItem=new CheckMenuItem("Show view");
         checkMenuItem.setOnAction(event -> {
-            if (checkMenuItem.isSelected()){
+            if (checkMenuItem.isSelected()) {
                 System.out.println("Check menu item selected");
             }
         });
-        menu1.getItems().addAll(checkMenuItem,checkMenuItem1);
+
+
+        ToggleGroup difficulty=new ToggleGroup();
+        RadioMenuItem easy=new RadioMenuItem("Easy");
+        RadioMenuItem hard=new RadioMenuItem("Hard");
+        RadioMenuItem medium=new RadioMenuItem("Medium");
+
+        easy.setSelected(true);
+
+        easy.setToggleGroup(difficulty);
+        medium.setToggleGroup(difficulty);
+        hard.setToggleGroup(difficulty);
+
+        menu1.getItems().addAll(checkMenuItem, checkMenuItem1, easy, medium, hard);
 
         MenuBar menuBar=new MenuBar();
         menuBar.getMenus().addAll(menu, menu1);
