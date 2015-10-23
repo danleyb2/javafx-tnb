@@ -3,10 +3,14 @@ package sample;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -16,6 +20,7 @@ import javafx.stage.Stage;
 public class TableV extends Application {
 
     TableView<Product> tableView;
+    TextField textFieldn,textFieldp,textFieldq;
 
     public ObservableList<Product> getProduct(){
         ObservableList<Product> products= FXCollections.observableArrayList();
@@ -43,11 +48,31 @@ public class TableV extends Application {
 
         tableView=new TableView<>();
         tableView.setItems(getProduct());
-        tableView.getColumns().addAll(nameColumn,quantityColumn,priceColumn);
+        tableView.getColumns().addAll(nameColumn, quantityColumn, priceColumn);
+
+        textFieldn=new TextField();
+        textFieldn.setPromptText("Name");
+        textFieldn.setMinWidth(100);
+
+        textFieldp=new TextField();
+        textFieldp.setPromptText("Price");
+        textFieldp.setMinWidth(100);
+
+        textFieldq=new TextField();
+        textFieldq.setPromptText("Quantity");
+        textFieldq.setMinWidth(100);
+
+        Button  buttonAdd=new Button("Add "),
+                buttonDelete=new Button("Delete");
+
+        HBox hBox=new HBox();
+        hBox.setPadding(new Insets(10, 10, 10, 10));
+        hBox.setSpacing(10);
+        hBox.getChildren().addAll(textFieldn,textFieldq,textFieldp,buttonAdd,buttonDelete);
 
 
         VBox vBox=new VBox();
-        vBox.getChildren().addAll(tableView);
+        vBox.getChildren().addAll(tableView,hBox);
 
         Scene scene=new Scene(vBox);
         primaryStage.setScene(scene);
