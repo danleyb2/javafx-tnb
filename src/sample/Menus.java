@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -16,8 +17,9 @@ public class Menus extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Making menus");
-        Menu menu=new Menu("File");
+        Menu menu=new Menu("_File");
         menu.getItems().add(new MenuItem("New"));
+        menu.getItems().add(new SeparatorMenuItem());
         menu.getItems().add(new MenuItem("Exit"));
 
         MenuBar menuBar=new MenuBar();
