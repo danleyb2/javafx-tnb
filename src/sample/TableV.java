@@ -65,6 +65,19 @@ public class TableV extends Application {
         Button  buttonAdd=new Button("Add "),
                 buttonDelete=new Button("Delete");
 
+        buttonAdd.setOnAction(event -> {
+            Product product=new Product(textFieldn.getText(),Integer.parseInt(textFieldq.getText()),Integer.parseInt(textFieldp.getText()));
+            tableView.getItems().add(product);
+
+            textFieldq.clear();
+            textFieldp.clear();
+            textFieldn.clear();
+        });
+
+        buttonDelete.setOnAction(event -> {
+            tableView.getItems().remove(tableView.getSelectionModel().getSelectedIndex());
+        });
+
         HBox hBox=new HBox();
         hBox.setPadding(new Insets(10, 10, 10, 10));
         hBox.setSpacing(10);
