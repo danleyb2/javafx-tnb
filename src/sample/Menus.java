@@ -3,10 +3,7 @@ package sample;
 import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -22,10 +19,22 @@ public class Menus extends Application {
         menu.getItems().add(new SeparatorMenuItem());
         menu.getItems().add(new MenuItem("Exit"));
 
+        Menu menu1=new Menu("Help");
+        CheckMenuItem checkMenuItem1=new CheckMenuItem("Autosave");
+        checkMenuItem1.setSelected(true);
+        CheckMenuItem checkMenuItem=new CheckMenuItem("Show view");
+        checkMenuItem.setOnAction(event -> {
+            if (checkMenuItem.isSelected()){
+                System.out.println("Check menu item selected");
+            }
+        });
+        menu1.getItems().addAll(checkMenuItem,checkMenuItem1);
+
         MenuBar menuBar=new MenuBar();
-        menuBar.getMenus().add(menu);
+        menuBar.getMenus().addAll(menu, menu1);
 
         BorderPane borderPane=new BorderPane();
+        borderPane.setStyle("-fx-background-color: aqua");
         borderPane.setTop(menuBar);
         Scene scene=new Scene(borderPane,400,500);
         primaryStage.setScene(scene);
