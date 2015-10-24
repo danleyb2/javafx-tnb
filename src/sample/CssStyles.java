@@ -20,6 +20,7 @@ public class CssStyles extends Application {
         HBox hBox=new HBox();
 
         Label label=new Label("Username");
+        label.setStyle("-fx-text-fill: blue;-fx-font-size: 18px");
         TextField textField=new TextField();
         hBox.getChildren().addAll(label,textField);
 
