@@ -6,3 +6,7 @@
 .label{
     -fx-min-width: 100px;
 }
+
+.custom-css{
+    -fx-background-color: #5da8ff;
+}

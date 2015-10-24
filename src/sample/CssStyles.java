@@ -22,6 +22,7 @@ public class CssStyles extends Application {
         Label label=new Label("Username");
         label.setStyle("-fx-text-fill: blue;-fx-font-size: 18px");
         TextField textField=new TextField();
+        textField.getStyleClass().add("custom-css");
         hBox.getChildren().addAll(label,textField);
 
         vBox.getChildren().addAll(hBox);
