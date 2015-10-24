@@ -1,0 +1,8 @@
+.root{
+    -fx-background-color: #ff5dc2;
+    -fx-padding: 10px;
+
+}
+.label{
+    -fx-min-width: 100px;
+}
