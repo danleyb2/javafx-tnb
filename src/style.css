@@ -1,5 +1,5 @@
 .root{
-    -fx-background-color: #ff5dc2;
+    -fx-background-color:linear-gradient( #ffc86a, #ffec5e);
     -fx-padding: 10px;
 
 }
