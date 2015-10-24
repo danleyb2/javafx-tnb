@@ -1,6 +1,6 @@
 package sample;
 
-import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
