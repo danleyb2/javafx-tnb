@@ -1,9 +1,14 @@
 package sample;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Product{
     private String name;
     private int price;
     private int quantity;
+
+    private StringProperty productCode=new SimpleStringProperty(this,"productCode","");
 
     public String getName() {
         return name;
@@ -39,5 +44,17 @@ public class Product{
         this.name=name;
         this.price=price;
         this.quantity=quantity;
+    }
+
+    public String getProductCode() {
+        return productCode.get();
+    }
+
+    public StringProperty productCodeProperty() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode.set(productCode);
     }
 }
