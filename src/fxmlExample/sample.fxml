@@ -12,7 +12,9 @@
         prefHeight="400.0"
         prefWidth="600.0"
         xmlns="http://javafx.com/javafx/8"
-        fx:controller="fxmlExample.Controller">
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="fxmlExample.Controller"
+        >
     <center>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: cyan;"
               BorderPane.alignment="CENTER">
